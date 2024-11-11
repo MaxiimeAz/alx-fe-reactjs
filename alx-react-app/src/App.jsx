@@ -42,6 +42,16 @@ function App() {
         </div>
     );
 }
+function App() {
+    return (
+        <div>
+            <Header />
+            <MainContent />
+            <Footer />
+        </div>
+    );
+}
 
+export default App;
 export default App;
 export default App
