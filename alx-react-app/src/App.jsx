@@ -52,7 +52,15 @@ function App() {
         </div>
     );
 }
+function App() {
+    return (
+        <div>
+            <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+        </div>
+    );
+}
 
+export default App;
 export default App;
 export default App;
 export default App
