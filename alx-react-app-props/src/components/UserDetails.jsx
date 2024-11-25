@@ -12,5 +12,5 @@ function UserDetails() {
     </div>
   );
 }
-
+import UserContext from '../context/UserContext'; // Import UserContext relative to UserDetails.jsx
 export default UserDetails;
