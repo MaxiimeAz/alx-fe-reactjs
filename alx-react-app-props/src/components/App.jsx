@@ -8,7 +8,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import UserContext from '../context/UserContext'; // Import UserContext from the context folder
 function App() {
   const [count, setCount] = useState(0)
 
