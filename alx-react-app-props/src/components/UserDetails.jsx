@@ -1,8 +1,9 @@
-import { useContext } from "react";
-import UserContext from "./UserContext";
+
+import React, { useContext } from "react";
+import UserContext from "../context/UserContext";  // Import UserContext
 
 function UserDetails() {
-  const userData = useContext(UserContext); // Get userData from context
+  const userData = useContext(UserContext);  // Access context value
 
   return (
     <div>
