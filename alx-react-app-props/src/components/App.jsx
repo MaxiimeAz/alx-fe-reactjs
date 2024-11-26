@@ -60,7 +60,9 @@ function App() {
         </div>
     );
 }
-
+import React from 'react';
+import ProfilePage from './components/ProfilePage';
+import UserContext from './contexts/UserContext';
 export default App;
 export default App;
 export default App;
