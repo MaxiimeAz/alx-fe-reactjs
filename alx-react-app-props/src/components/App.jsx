@@ -11,7 +11,26 @@ import './App.css'
 import UserContext from '../context/UserContext'; // Import UserContext from the context folder
 function App() {
   const [count, setCount] = useState(0)
+import React from 'react';
+import ProfilePage from './components/ProfilePage';
+import UserContext from './contexts/UserContext';
 
+function App() {
+  // Define the data you want to provide through the context
+  const userData = { 
+    name: "Jane Doe", 
+    email: "jane.doe@example.com" 
+  };
+
+  // Wrap your component tree with UserContext.Provider and pass the value
+  return (
+    <UserContext.Provider value={userData}>
+      <ProfilePage />
+    </UserContext.Provider>
+  );
+}
+
+export default App;
   return (
     <>
       <div>
