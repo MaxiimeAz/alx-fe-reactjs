@@ -1,29 +1,32 @@
 import React, { useEffect } from 'react';
-import { useRecipeStore } from '../recipeStore';
-import { Link } from 'react-router-dom';
+import useRecipeStore from '../store/recipeStore'; // Import Zustand store
 
 const RecipeList = () => {
-  const recipes = useRecipeStore(state => state.filteredRecipes);
-  const filterRecipes = useRecipeStore(state => state.filterRecipes);
+  // Extract the filteredRecipes and the filterRecipes action from the Zustand store
+  const { filteredRecipes, filterRecipes } = useRecipeStore(state => ({
+    filteredRecipes: state.filteredRecipes,
+    filterRecipes: state.filterRecipes
+  }));
 
-  // Re-filter recipes whenever the list or search term changes
+  // Use useEffect to trigger the filtering action whenever the filteredRecipes state changes
   useEffect(() => {
-    filterRecipes();
+    filterRecipes(); // Filter recipes whenever the state changes
   }, [filterRecipes]);
 
+  // Render the filtered recipes
   return (
     <div>
-      <h2>Recipe List</h2>
-      {recipes.length === 0 ? (
-        <p>No recipes found. Try adjusting your search criteria.</p>
-      ) : (
-        recipes.map(recipe => (
-          <div key={recipe.id} style={{ marginBottom: '1em' }}>
+      {filteredRecipes.length > 0 ? (
+        // If there are filtered recipes, map over them and display
+        filteredRecipes.map((recipe, index) => (
+          <div key={index}>
             <h3>{recipe.title}</h3>
             <p>{recipe.description}</p>
-            <Link to={`/recipe/${recipe.id}`}>View Details</Link>
           </div>
         ))
+      ) : (
+        // Display this message if no recipes match the search term
+        <p>No recipes found</p>
       )}
     </div>
   );
