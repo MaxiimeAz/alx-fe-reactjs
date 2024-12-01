@@ -1,0 +1,21 @@
+{
+  "name": "recipe-sharing-app",
+  "version": "1.0.0",
+  "description": "A simple recipe sharing application built with React and Zustand",
+  "author": "Your Name",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",                  // Start the development server
+    "build": "vite build",          // Build the app for production
+    "preview": "vite preview"       // Preview the built app
+  },
+  "dependencies": {
+    "react": "^18.0.0",             // React core library
+    "react-dom": "^18.0.0",         // React DOM library
+    "zustand": "^4.3.0"             // Zustand for state management
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",  // Vite plugin for React
+    "vite": "^4.0.0"                   // Vite build tool
+  }
+}
