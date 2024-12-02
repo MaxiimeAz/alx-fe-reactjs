@@ -1,34 +1,19 @@
-import React, { useEffect } from 'react';
-import useRecipeStore from '../store/recipeStore'; // Import Zustand store
+import React from 'react';
+import useRecipeStore from '../store/recipeStore';
 
 const RecipeList = () => {
-  // Extract the filteredRecipes and the filterRecipes action from the Zustand store
-  const { filteredRecipes, filterRecipes } = useRecipeStore(state => ({
-    filteredRecipes: state.filteredRecipes,
-    filterRecipes: state.filterRecipes
-  }));
+  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
 
-  // Use useEffect to trigger the filtering action whenever the filteredRecipes state changes
-  useEffect(() => {
-    filterRecipes(); // Filter recipes whenever the state changes
-  }, [filterRecipes]);
-
-  // Render the filtered recipes
   return (
-    <div>
-      {filteredRecipes.length > 0 ? (
-        // If there are filtered recipes, map over them and display
-        filteredRecipes.map((recipe, index) => (
-          <div key={index}>
-            <h3>{recipe.title}</h3>
-            <p>{recipe.description}</p>
-          </div>
-        ))
-      ) : (
-        // Display this message if no recipes match the search term
-        <p>No recipes found</p>
-      )}
-    </div>
+    <ul>
+      {filteredRecipes.map((recipe) => (
+        <li key={recipe.id}>
+          <h3>{recipe.title}</h3>
+          <p>Ingredients: {recipe.ingredients.join(", ")}</p>
+          <p>Preparation Time: {recipe.time} mins</p>
+        </li>
+      ))}
+    </ul>
   );
 };
 
