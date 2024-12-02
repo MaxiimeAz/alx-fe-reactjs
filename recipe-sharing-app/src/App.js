@@ -6,7 +6,7 @@ import React from 'react';
 import FavoritesList from './components/FavoritesList';
 import RecommendationsList from './components/RecommendationsList';
 
-const App = () => {
+function App() {
   return (
     <div>
       <h1>Recipe Sharing App</h1>
@@ -14,10 +14,9 @@ const App = () => {
       <RecommendationsList />
     </div>
   );
-};
+}
 
 export default App;
-
 export default App;const App = () => {
   // Fetch the recipes from the Zustand store and add them for testing purposes
   const { recipes, setSearchTerm, filterRecipes } = useRecipeStore(state => ({
