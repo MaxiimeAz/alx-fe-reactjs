@@ -2,7 +2,20 @@ import React, { useEffect } from 'react';
 import SearchBar from './components/SearchBar'; // Import the SearchBar component
 import RecipeList from './components/RecipeList'; // Import the RecipeList component
 import useRecipeStore from './store/recipeStore'; // Import the Zustand store
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
+const App = () => {
+  return (
+    <div>
+      <h1>Recipe Sharing App</h1>
+      <FavoritesList />
+      <RecommendationsList />
+    </div>
+  );
+};
+
+export default App;
 const App = () => {
   // Fetch the recipes from the Zustand store and add them for testing purposes
   const { recipes, setSearchTerm, filterRecipes } = useRecipeStore(state => ({
