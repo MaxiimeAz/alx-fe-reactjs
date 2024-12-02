@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import SearchBar from './components/SearchBar'; // Import the SearchBar component
 import RecipeList from './components/RecipeList'; // Import the RecipeList component
 import useRecipeStore from './store/recipeStore'; // Import the Zustand store
+import React from 'react';
 import FavoritesList from './components/FavoritesList';
 import RecommendationsList from './components/RecommendationsList';
 
@@ -16,7 +17,8 @@ const App = () => {
 };
 
 export default App;
-const App = () => {
+
+export default App;const App = () => {
   // Fetch the recipes from the Zustand store and add them for testing purposes
   const { recipes, setSearchTerm, filterRecipes } = useRecipeStore(state => ({
     recipes: state.recipes,
