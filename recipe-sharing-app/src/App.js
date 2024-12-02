@@ -51,5 +51,18 @@ export default App;const App = () => {
     </div>
   );
 };
+// App.js
+import React from 'react';
+import TestRecommendations from './components/TestRecommendations';
 
+function App() {
+  return (
+    <div>
+      <h1>Recipe Sharing App</h1>
+      <TestRecommendations />
+    </div>
+  );
+}
+
+export default App;
 export default App;
