@@ -1,4 +1,4 @@
-// App.js
+
 import React, { useEffect } from 'react';
 import useRecipeStore from './components/recipeStore';  // Import the Zustand store
 import FavoritesList from './components/FavoritesList'; // Import the FavoritesList component
