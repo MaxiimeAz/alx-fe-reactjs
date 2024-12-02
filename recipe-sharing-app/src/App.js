@@ -1,68 +1,44 @@
+// App.js
 import React, { useEffect } from 'react';
-import SearchBar from './components/SearchBar'; // Import the SearchBar component
-import RecipeList from './components/RecipeList'; // Import the RecipeList component
-import useRecipeStore from './store/recipeStore'; // Import the Zustand store
-import React from 'react';
-import FavoritesList from './components/FavoritesList';
-import RecommendationsList from './components/RecommendationsList';
+import useRecipeStore from './components/recipeStore';  // Import the Zustand store
+import FavoritesList from './components/FavoritesList'; // Import the FavoritesList component
+import RecommendationsList from './components/RecommendationsList'; // Import the RecommendationsList component
 
 function App() {
+  // Access recipes, addFavorite, and generateRecommendations actions from the store
+  const { recipes, addFavorite, generateRecommendations } = useRecipeStore(state => ({
+    recipes: state.recipes,
+    addFavorite: state.addFavorite,
+    generateRecommendations: state.generateRecommendations,
+  }));
+
+  // Simulating the initial population of recipes and generating recommendations on load
+  useEffect(() => {
+    if (recipes.length === 0) {
+      // Mocking some sample recipes if none are available
+      setTimeout(() => {
+        const initialRecipes = [
+          { id: 1, title: "Spaghetti Carbonara", description: "A classic Italian pasta dish" },
+          { id: 2, title: "Chicken Curry", description: "A flavorful and spicy curry" },
+          { id: 3, title: "Vegan Tacos", description: "Delicious plant-based tacos" }
+        ];
+        initialRecipes.forEach(recipe => addFavorite(recipe.id)); // Adding some recipes to favorites
+        generateRecommendations();  // Generate recommendations based on favorites
+      }, 500);  // Simulate loading recipes asynchronously
+    }
+  }, [recipes, addFavorite, generateRecommendations]);
+
   return (
     <div>
       <h1>Recipe Sharing App</h1>
+      
+      {/* Favorites List */}
       <FavoritesList />
+      
+      {/* Recommendations List */}
       <RecommendationsList />
     </div>
   );
 }
 
-export default App;
-export default App;const App = () => {
-  // Fetch the recipes from the Zustand store and add them for testing purposes
-  const { recipes, setSearchTerm, filterRecipes } = useRecipeStore(state => ({
-    recipes: state.recipes,
-    setSearchTerm: state.setSearchTerm,
-    filterRecipes: state.filterRecipes
-  }));
-
-  // Example of adding recipes to the store (this could be done elsewhere, like in an API call)
-  useEffect(() => {
-    if (recipes.length === 0) {  // Add some sample recipes if the store is empty
-      useRecipeStore.setState({
-        recipes: [
-          { title: 'Spaghetti Bolognese', description: 'A delicious pasta dish with a rich tomato sauce.' },
-          { title: 'Chicken Curry', description: 'A spicy and flavorful chicken dish.' },
-          { title: 'Vegetable Stir Fry', description: 'A healthy mix of vegetables stir-fried with soy sauce.' }
-        ]
-      });
-    }
-  }, [recipes]);
-
-  // Trigger the filterRecipes whenever the recipes or search term changes
-  useEffect(() => {
-    filterRecipes();
-  }, [recipes, filterRecipes]);
-
-  return (
-    <div>
-      <h1>Recipe Sharing App</h1>
-      <SearchBar />  {/* The search bar for entering search terms */}
-      <RecipeList />  {/* The recipe list that displays filtered recipes */}
-    </div>
-  );
-};
-// App.js
-import React from 'react';
-import TestRecommendations from './components/TestRecommendations';
-
-function App() {
-  return (
-    <div>
-      <h1>Recipe Sharing App</h1>
-      <TestRecommendations />
-    </div>
-  );
-}
-
-export default App;
 export default App;
