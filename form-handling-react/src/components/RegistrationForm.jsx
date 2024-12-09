@@ -1,24 +1,16 @@
 import React, { useState } from "react";
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: "test_user123", // Prefilled username
-    email: "test.user@example.com", // Prefilled email
-    password: "P@ssw0rd123!", // Prefilled password
-  });
-
+  const [username, setUsername] = useState("test_user123"); // Separate state for username
+  const [email, setEmail] = useState("test.user@example.com"); // Separate state for email
+  const [password, setPassword] = useState("P@ssw0rd123!"); // Separate state for password
   const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.password) newErrors.password = "Password is required";
+    if (!username) newErrors.username = "Username is required";
+    if (!email) newErrors.email = "Email is required";
+    if (!password) newErrors.password = "Password is required";
     return newErrors;
   };
 
@@ -28,7 +20,7 @@ const RegistrationForm = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      console.log("Form submitted:", formData);
+      console.log("Form submitted:", { username, email, password });
       setErrors({});
       alert("Registration Successful!");
     }
@@ -40,9 +32,8 @@ const RegistrationForm = () => {
         <label>Username</label>
         <input
           type="text"
-          name="username"
-          value={formData.username} // Prefilled value
-          onChange={handleChange}
+          value={username} // Directly tied to the username state
+          onChange={(e) => setUsername(e.target.value)}
         />
         {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
       </div>
@@ -51,9 +42,8 @@ const RegistrationForm = () => {
         <label>Email</label>
         <input
           type="email"
-          name="email"
-          value={formData.email} // Prefilled value
-          onChange={handleChange}
+          value={email} // Directly tied to the email state
+          onChange={(e) => setEmail(e.target.value)}
         />
         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
       </div>
@@ -62,9 +52,8 @@ const RegistrationForm = () => {
         <label>Password</label>
         <input
           type="password"
-          name="password"
-          value={formData.password} // Prefilled value
-          onChange={handleChange}
+          value={password} // Directly tied to the password state
+          onChange={(e) => setPassword(e.target.value)}
         />
         {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
       </div>
