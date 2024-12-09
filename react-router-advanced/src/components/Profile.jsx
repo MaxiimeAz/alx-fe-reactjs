@@ -6,17 +6,15 @@ function Profile() {
       <h2>Profile Page</h2>
       <nav>
         <ul>
-          {/* Link to the Profile Details page */}
           <li>
-            <Link to="details">Profile Details</Link>
+            <Link to="details">Profile Details</Link> {/* Link to ProfileDetails */}
           </li>
-          {/* Link to the Profile Settings page */}
           <li>
-            <Link to="settings">Profile Settings</Link>
+            <Link to="settings">Profile Settings</Link> {/* Link to ProfileSettings */}
           </li>
         </ul>
       </nav>
-      {/* Outlet renders the nested route components here */}
+      {/* Outlet will render the nested route components */}
       <Outlet />
     </div>
   );
