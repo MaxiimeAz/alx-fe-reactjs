@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+    username: "test_user123", // Prefilled username
+    email: "test.user@example.com", // Prefilled email
+    password: "P@ssw0rd123!", // Prefilled password
   });
 
   const [errors, setErrors] = useState({});
@@ -41,7 +41,7 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formData.username} // Tied to formData
+          value={formData.username} // Prefilled value
           onChange={handleChange}
         />
         {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
@@ -52,7 +52,7 @@ const RegistrationForm = () => {
         <input
           type="email"
           name="email"
-          value={formData.email} // Tied to formData
+          value={formData.email} // Prefilled value
           onChange={handleChange}
         />
         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
@@ -63,7 +63,7 @@ const RegistrationForm = () => {
         <input
           type="password"
           name="password"
-          value={formData.password} // Tied to formData
+          value={formData.password} // Prefilled value
           onChange={handleChange}
         />
         {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
