@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormik } from "formik";
+import { useFormik, Field, ErrorMessage } from "formik"; // Import ErrorMessage from Formik
 import * as Yup from "yup";
 
 const FormikForm = () => {
@@ -27,34 +27,28 @@ const FormikForm = () => {
     <form onSubmit={formik.handleSubmit}>
       <div>
         <label>Username</label>
-        <input
+        <Field
           type="text"
           name="username"
           {...formik.getFieldProps("username")}
         />
-        {formik.touched.username && formik.errors.username ? (
-          <p style={{ color: "red" }}>{formik.errors.username}</p>
-        ) : null}
+        <ErrorMessage name="username" component="p" style={{ color: "red" }} />
       </div>
 
       <div>
         <label>Email</label>
-        <input type="email" name="email" {...formik.getFieldProps("email")} />
-        {formik.touched.email && formik.errors.email ? (
-          <p style={{ color: "red" }}>{formik.errors.email}</p>
-        ) : null}
+        <Field type="email" name="email" {...formik.getFieldProps("email")} />
+        <ErrorMessage name="email" component="p" style={{ color: "red" }} />
       </div>
 
       <div>
         <label>Password</label>
-        <input
+        <Field
           type="password"
           name="password"
           {...formik.getFieldProps("password")}
         />
-        {formik.touched.password && formik.errors.password ? (
-          <p style={{ color: "red" }}>{formik.errors.password}</p>
-        ) : null}
+        <ErrorMessage name="password" component="p" style={{ color: "red" }} />
       </div>
 
       <button type="submit">Register</button>
