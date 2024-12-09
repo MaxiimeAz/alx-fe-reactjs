@@ -14,7 +14,7 @@ function Profile() {
           </li>
         </ul>
       </nav>
-      {/* Outlet renders nested routes here */}
+      {/* Outlet renders the nested route components */}
       <Outlet />
     </div>
   );
