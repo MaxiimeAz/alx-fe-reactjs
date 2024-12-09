@@ -4,7 +4,19 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import React from "react";
 import FormikForm from "./components/FormikForm";
+import React from "react";
+import RegistrationForm from "./components/RegistrationForm";
 
+const App = () => {
+  return (
+    <div>
+      <h1>User Registration</h1>
+      <RegistrationForm />
+    </div>
+  );
+};
+
+export default App;
 const App = () => {
   return (
     <div>
