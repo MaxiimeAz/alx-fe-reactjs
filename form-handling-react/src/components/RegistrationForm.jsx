@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 
 const RegistrationForm = () => {
-  // State for form fields
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  // State for form errors
   const [errors, setErrors] = useState({});
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Validate the form
   const validate = () => {
     const newErrors = {};
     if (!formData.username) newErrors.username = "Username is required";
@@ -26,7 +22,6 @@ const RegistrationForm = () => {
     return newErrors;
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -46,7 +41,7 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formData.username}
+          value={formData.username} // Managed by formData
           onChange={handleChange}
         />
         {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
@@ -57,7 +52,7 @@ const RegistrationForm = () => {
         <input
           type="email"
           name="email"
-          value={formData.email}
+          value={formData.email} // Managed by formData
           onChange={handleChange}
         />
         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
@@ -68,7 +63,7 @@ const RegistrationForm = () => {
         <input
           type="password"
           name="password"
-          value={formData.password}
+          value={formData.password} // Managed by formData
           onChange={handleChange}
         />
         {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
