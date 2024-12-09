@@ -5,8 +5,7 @@ import './App.css';
 import React from "react";  // You only need this once
 
 // Import your form component here
-import FormikForm from "./components/formikForm";  // Assuming you want to use FormikForm
-
+import FormikForm from "./components/formikForm.js";  // Now it matches the .js extension
 // If you want to use RegistrationForm instead, import it:
 // import RegistrationForm from "./components/RegistrationForm";
 
