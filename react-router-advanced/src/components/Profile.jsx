@@ -1,4 +1,7 @@
-import { Link, Outlet } from 'react-router-dom'; // Import Link and Outlet
+import React from 'react';
+import { Link, Outlet, Routes, Route } from 'react-router-dom'; // Import Routes and Route
+import ProfileDetails from './ProfileDetails';
+import ProfileSettings from './ProfileSettings';
 
 function Profile() {
   return (
@@ -14,7 +17,14 @@ function Profile() {
           </li>
         </ul>
       </nav>
-      {/* Outlet will render the nested route components */}
+
+      {/* Define nested routes */}
+      <Routes>
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Routes>
+
+      {/* Outlet can also render child components, if defined elsewhere */}
       <Outlet />
     </div>
   );
