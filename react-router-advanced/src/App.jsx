@@ -1,30 +1,37 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Profile from './components/Profile';
-import ProfileDetails from './components/ProfileDetails';
-import ProfileSettings from './components/ProfileSettings';
-import UserProfile from './components/UserProfile';  // New dynamic route component
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Home from './pages/Home'; // Your Home component
+import Login from './pages/Login'; // Your Login component
+import Profile from './components/Profile'; // Your Profile component
+import ProfileDetails from './components/ProfileDetails'; // ProfileDetails component
+import ProfileSettings from './components/ProfileSettings'; // ProfileSettings component
 
-function App() {
+const App = () => {
+  const isAuthenticated = true; // Replace with actual authentication logic
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} /> {/* Home route */}
-        
-        {/* Profile route with nested routes */}
-        <Route path="/profile" element={<Profile />}>
-          <Route path="details" element={<ProfileDetails />} /> {/* Nested route for details */}
-          <Route path="settings" element={<ProfileSettings />} /> {/* Nested route for settings */}
-        </Route>
-        
-        {/* Dynamic route for user profile */}
-        <Route path="/user/:userId" element={<UserProfile />} /> {/* Dynamic route */}
-      </Routes>
-    </Router>
-  );
-}
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
 
-function Home() {
-  return <div>Welcome to the Home Page!</div>;
-}
+      {/* Protected Routes */}
+      <Route
+        path="/profile/*"
+        element={
+          isAuthenticated ? (
+            <Profile />
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      >
+        {/* Nested Routes for Profile */}
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Route>
+    </Routes>
+  );
+};
 
 export default App;
