@@ -1,12 +1,11 @@
 import React from 'react';
-import './App.css';
-import TodoList from './TodoList'; // Import the TodoList component
+import TodoList from './components/TodoList'; // Import the TodoList component
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Todo List App</h1> {/* Add a heading */}
+        <h1>Todo List</h1> {/* You can add a title if you'd like */}
         <TodoList /> {/* Render the TodoList component */}
       </header>
     </div>
@@ -14,4 +13,3 @@ function App() {
 }
 
 export default App;
-
