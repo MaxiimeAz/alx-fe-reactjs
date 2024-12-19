@@ -8,16 +8,21 @@
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1"
   },
+  "devDependencies": {
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/jest-dom": "^5.16.4"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:jest/recommended"
     ]
   },
   "browserslist": {
