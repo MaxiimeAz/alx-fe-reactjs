@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [],
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"], // Replace with your file paths
   theme: {
-    extend: {},
+    extend: {}, // Use this to extend the default Tailwind theme
   },
-  plugins: [],
-}
+  plugins: [], // Add Tailwind plugins here
+};
