@@ -1,9 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"], // Files to scan for Tailwind classes
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   theme: {
-    extend: {}, // Customize your theme (e.g., add new colors or spacing)
+    extend: {
+      colors: {
+        primary: "#1D4ED8", // Example: Add custom colors
+        secondary: "#9333EA",
+      },
+    },
   },
-  darkMode: "class", // Optional: Use "class" for manual dark mode toggling
-  plugins: [], // Add Tailwind plugins here (if needed)
+  darkMode: "class", // Optional: Use "class" for manual dark mode
+  plugins: [], // Add plugins here if needed
 };
+
