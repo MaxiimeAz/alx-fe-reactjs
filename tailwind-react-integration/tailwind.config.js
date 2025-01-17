@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"], // Replace with your file paths
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"], // Files to scan for Tailwind classes
   theme: {
-    extend: {}, // Use this to extend the default Tailwind theme
+    extend: {}, // Customize your theme (e.g., add new colors or spacing)
   },
-  plugins: [], // Add Tailwind plugins here
+  darkMode: "class", // Optional: Use "class" for manual dark mode toggling
+  plugins: [], // Add Tailwind plugins here (if needed)
 };
